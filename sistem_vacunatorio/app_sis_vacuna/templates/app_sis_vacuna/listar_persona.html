@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/app_sis_vacuna/listar_persona/" method="GET">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Rut</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Edad</th>
+                    <th>Vacuna</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if personas %}
+                {% for pers in personas %}
+                <tr>
+                    <td>{{ pers.rut  }}</td>
+                    <td>{{ pers.nombre }}</td>
+                    <td>{{ pers.ap_paterno }}</td>
+                    <td>{{ pers.ap_materno  }}</td>
+                    <td>{{ pers.edad }}</td>
+                    <td>{{ pers.nombre_vacuna }}</td>
+                    <td>{{ pers.fecha }}</td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                 <h2>No existen registros de personas...</h2>
+                {% endif %}                
+            </tbody>
+        </table>   
+        <input type="submit" value="Listar">
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <Link rel="stylesheet" href="{%static 'css/estilos.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body id="body" class="body" >
+    <div class="row col-md-12 div_body ">
+        <div class="col-md-10 container ">
+            {%include "app_sis_vacuna/encabezado.html" %}
+        </div>
+
+               <h2 style="text-align: center;">Link de Accesos a Mantenedor</h2>
+        <div class="container col-md-10 row" style="text-align: center; justify-content: end;">
+            <a class="a col-md-2" href="/app_sis_vacuna/ingresar_persona/">Ingresar persona</a> <br>
+            <a class="a col-md-2" href="/app_sis_vacuna/eliminar_persona/">Eliminar persona</a> <br>
+            <a class="a col-md-2" href="/app_sis_vacuna/listar_persona/">Listar persona</a> <br>
+            <a class="a col-md-2" href="/app_sis_vacuna/busqueda_persona/">Buscar persona</a> <br>
+        </div>
+       
+    </div>
+</body>
+</html>
