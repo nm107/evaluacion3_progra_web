@@ -25,6 +25,8 @@ header ul {
 header ul a {
     position: relative;
     transition: 0.7s;
+    color: white !important;
+
 }
 
 .navbar {
@@ -45,18 +47,12 @@ header ul a {
 li{
     display: inline;
     margin: 0 20px;
-    color: white;
+    color: white !important;
 }
  li a{
-    color: white;
+    color: white !important;
 }
 .div_body {
     max-width: 100%;
     margin-top: 120px;
-}
-.a{
-    color: rgb(18, 31, 61) !important;
-}
-.a :hover{
-    color: red;
 }

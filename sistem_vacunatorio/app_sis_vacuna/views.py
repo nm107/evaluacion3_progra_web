@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from app_sis_vacuna.models import Persona
+from tkinter import messagebox
 
 #index
 def index(request):
@@ -24,6 +25,7 @@ def ingreso_persona(request):
         pro=Persona(rut=rut,nombre=nombre,ap_paterno=appaterno, ap_materno=apmaterno,edad=edad,nombre_vacuna=vacuna, fecha=fecha)  
         pro.save()
         mensaje="Persona ingresado..."
+
     else:
         mensaje="Persona No ingresado o faltan datos..."
     return HttpResponse(mensaje)
@@ -36,10 +38,10 @@ def busqueda_persona(request):
 def buscar_persona(request):
     if request.GET["txt_rut"]:
         persona = request.GET["txt_rut"]
-        personas = Persona.objects.filter(nombre__icontains=persona)
-        return render(request,"app_sis_vacuna/listar_persona.html",{"personas":personas,"query":persona})
+        personas = Persona.objects.filter(rut__icontains=persona)
+        return render(request,"app_sis_vacuna/listar.html",{"personas":personas,"query":persona})
     else:
-        mensaje = "Debe ingresar un nombre de producto"
+        mensaje = "Debe ingresar un rut de Persona"
         return HttpResponse(mensaje)
 
 
@@ -68,6 +70,7 @@ def listar_persona(request):
     datos = Persona.objects.all()  
     return render(request,"app_sis_vacuna/listar_persona.html",{'personas':datos})
     
-
+def listar_todo_persona(request):
+    return render(request,"app_sis_vacuna/listar_persona.html")
 
 
