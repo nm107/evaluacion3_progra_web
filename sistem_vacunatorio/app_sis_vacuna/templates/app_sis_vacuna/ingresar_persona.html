@@ -66,9 +66,9 @@
                         <p class="tr">Vacuna</p>
                     </div>
                     <div class="col-md-7 col-sm-11 col-11">
-                        <select class="form_select" name="select">
+                        <select class="form_select" name="txt_vacuna">
                         {% for vacuna in vacunas %}
-                            <option  type="text" name="txt_vacuna" id="txt_vacuna" value="{{ vacuna.nombre }}">{{ vacuna.nombre }}</option>
+                            <option  type="text" id="txt_vacuna" value="{{ vacuna.nombre }}">{{ vacuna.nombre }}</option>
                         {% endfor %}
                     </select>
                     </div>
