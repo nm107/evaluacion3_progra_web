@@ -1,52 +1,54 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <Link rel="stylesheet" href="{%static 'css/estilos.css' %}">
+    <Link rel="stylesheet" href="{%static 'css/estiloss.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body id="body" class="body" >
     <div class="row col-md-12 div_body">
-        <div class="col-md-10 container">
-            {%include "app_sis_vacuna/encabezado.html" %}
-        </div>
+            <div class="col-md-10 container">
+                {%include "app_sis_vacuna/encabezado.html" %}
+            </div>
+            <h1 class="h2">lista de persona</h1>
+            <div class="div_form container col-md-12">
+                <form class="col-md-12 container  column" style="text-align: justify; justify-content: end; padding:3%;" action="/app_sis_vacuna/listar_persona/" method="GET">
+                    <table class="container col-md-12" border="1">
+                        <thead style="border: inset;">
+                            <tr style="border: inset;">
+                                <th>Rut</th>
+                                <th>Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Edad</th>
+                            </tr>
+                        </thead>
+                        <tbody style="border: inset;">
+                            {% if personas %}
+                            {% for pers in personas %}
+                            <tr style="border: inset;">
+                                <td>{{ pers.rut  }}</td>
+                                <td>{{ pers.nombre }}</td>
+                                <td>{{ pers.ap_paterno }}</td>
+                                <td>{{ pers.ap_materno  }}</td>
+                                <td>{{ pers.edad }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% else %}
+                            <h2 class="h3">No existen registros de personas...</h2>
+                           <!-- <button class="col-md-6 buttons"><a class="as"  style="" href="/app_sis_vacuna/ingresar_persona/">Link a ingresar Persona</a></button>
+                            <button class="col-md-4 buttons"><a class="" href="/app_sis_vacuna/buscar_persona/"></a>Volver</button>-->
+                            {% endif %}                
+                        </tbody>
+                    </table>   
+                </form>
+            </div>
+    </div>
+    {%include "app_sis_vacuna/footer.html" %}
 
-    <form class="col-md-12 container column" style="text-align: justify; justify-content: end;" action="/app_sis_vacuna/listar_persona/" method="GET">
-        <table class="container col-md-8" border="1">
-            <thead style="border: inset;">
-                <tr style="border: inset;">
-                    <th>Rut</th>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>Edad</th>
-                    <th>Vacuna</th>
-                    <th>Fecha</th>
-                </tr>
-            </thead>
-            <tbody style="border: inset;">
-                {% if personas %}
-                {% for pers in personas %}
-                <tr style="border: inset;">
-                    <td>{{ pers.rut  }}</td>
-                    <td>{{ pers.nombre }}</td>
-                    <td>{{ pers.ap_paterno }}</td>
-                    <td>{{ pers.ap_materno  }}</td>
-                    <td>{{ pers.edad }}</td>
-                    <td>{{ pers.nombre_vacuna }}</td>
-                    <td>{{ pers.fecha }}</td>
-                </tr>
-                {% endfor %}
-                {% else %}
-                 <h2>No existen registros de personas...</h2>
-                {% endif %}                
-            </tbody>
-        </table>   
-        <input type="submit" value="Listar">
-    </form>
 </body>
 </html>

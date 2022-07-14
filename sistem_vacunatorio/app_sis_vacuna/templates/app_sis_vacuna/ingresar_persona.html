@@ -1,59 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
+<DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <Link rel="stylesheet" href="{%static 'css/estilos.css' %}">
+    <Link rel="stylesheet" href="{%static 'css/estiloss.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
-    {% load static %}
 </head>
 <body id="body" class="body" >
+    {% load static %}
+    <script type="text/javascript" src="{% static 'js/validaciones.js' %}"></script>
     <div class="row col-md-12 div_body ">
         <div class="col-md-10 container ">
             {%include "app_sis_vacuna/encabezado.html" %}
         </div>
-    <form class="col-md-12 container column" style="text-align: justify; justify-content: end;" action="/app_sis_vacuna/ingreso_persona/" method="GET">
-        <table class="container col-md-4">
-            <tr>
-                <td>Rut</td>
-                <td><input type="text" name="txt_rut"></td>
-            </tr>
-            <tr>
-                <td>Nombre</td>
-                <td><input type="text" name="txt_nombre"></td>
-            </tr>
-            <tr>
-                <td>Apellido Peterno</td>
-                <td><input type="text" name="txt_appaterno"></td>
-            </tr>
-            <tr>
-                <td>Apellido Materno</td>
-                <td><input type="text" name="txt_apmaterno"></td>
-            </tr>
-            <tr>
-                <td>Edad</td>
-                <td><input type="number" name="txt_edad"></td>
-            </tr>
-            <tr>
-                <td>Vacuna</td>
-                <td><input type="text" name="txt_vacuna"></td>
-            </tr>
-            <tr>
-                <td>Fecha</td>
-                <td><input type="date" id="start" name="txt_fecha"
-                    value="2022-06-30"
-                    min="1900-01-01" max="2022-12-31"></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="Guardar" name=""></td>
-                
-                <td></td>
-            </tr>
-        </table>      
-    </form>   
+        <h1 class="h2">Registro de persona </h1>
+
+    <div class="div_form container" id="div_form">
+        <form class="col-md-12 container row formulario_form" name="formulario_form" style="text-align: center; justify-content: center;" action="/app_sis_vacuna/ingreso_persona/" method="GET">
+            <div class="container col-md-9 col-sm-9 col-12">
+                <div class="mb-4 row col-md-12 col-sm-12 col-12">
+                    <div class="col-md-1 col-sm-1 col-1">
+                        <p class="tr">Rut</p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-11">
+                        <input class="form" type="text" name="txt_rut" id="txt_rut" placeholder="Rut solo con guion">
+                    </div>
+                </div>
+                <div class="mb-4 row col-md-12 col-sm-12 col-12">
+                    <div class="col-md-1 col-sm-1 col-1">
+                        <p class="tr">Nombre</p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-11">
+                        <input class="form" type="text" name="txt_nombre" >
+                    </div>
+                </div>
+                <div class="mb-4 row col-md-12 col-sm-12 col-12">
+                    <div class="col-md-1 col-sm-1 col-1">
+                        <p class="tr">Apellido Peterno</p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-11">
+                        <input class="form" type="text" name="txt_appaterno" >
+                    </div>
+                </div>
+                <div class=" row col-md-12 col-sm-12 col-12">
+                    <div class="col-md-1 col-sm-1 col-1">
+                        <p class="tr">Apellido Materno</p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-11">
+                        <input class="form" type="text" name="txt_apmaterno" >
+                    </div>
+                </div>
+                <div class="mb-4 row col-md-12 col-sm-12 col-12">
+                    <div class="col-md-1 col-sm-1 col-1">
+                        <p class="tr">Edad</p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-11">
+                        <input class="form" type="number" name="txt_edad">
+                    </div>
+                </div>
+                <div class="mb-4 row col-md-12 col-sm-12 col-12">
+                    <div class="col-md-1 col-sm-1 col-1">
+                        <p class="tr">Vacuna</p>
+                    </div>
+                    <div class="col-md-7 col-sm-11 col-11">
+                        <select class="form_select" name="select">
+                        {% for vacuna in vacunas %}
+                            <option  type="text" name="txt_vacuna" id="txt_vacuna" value="{{ vacuna.nombre }}">{{ vacuna.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+                </div>
+                <div class="mb-4 row col-md-12 col-sm-12 col-12">
+                    <div class="col-md-1 col-sm-1 col-1">
+                        <p class="tr">Fecha</p>
+                    </div>
+                    <div class="col-md-4 col-sm-11 col-11">
+                        <input class="form" type="date" id="start" name="txt_fecha"
+                        value="2022-07-14"
+                        min="2019-01-01" max="2022-07-15">
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12 aling" style="text-align: center;margin:0;justify-content: space-between;">
+                    <input class="" value="Guardar" onclick="javascript:void(validacion_formulario_ingreso_persona())" />
+                    <!--<button class="btns col-md-6 col-xs-6" onclick="javascript:void(limpiar())"
+                        style="text-align: center;">limpiar</button>limpiar-->
+                </div>
+
+              
+            </div>
+        </form>   
+    </div>
+</div>
+    {%include "app_sis_vacuna/footer.html" %}
 </body>
 </html>
-    <!--include encabezado-->
+

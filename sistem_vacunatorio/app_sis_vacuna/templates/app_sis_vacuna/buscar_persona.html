@@ -10,24 +10,26 @@
     <title>Document</title>
 </head>
 <body id="body" class="body" >
-        <div class="row col-md-12 div_body">
+        <div class="row col-md-12 div_body" style="margin-bottom: 65px;">
             <div class="col-md-10 container">
                 {%include "app_sis_vacuna/encabezado.html" %}
             </div>
-            <div  class="container col-md-10 row">   
-            <form class="col-md-12 container column" style="text-align: justify; justify-content: end;" action="/app_sis_vacuna/buscar_persona/" method="GET">
-                <table class="container col-md-4">
-                    <tr>
-                        <td>Ingrese rut de persona</td>
-                        <td><input type="text" name="txt_rut"> </td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="ver persona buscada"></td>
-                        <td></td>
-                    </tr>
-                </table>
-            </form>
+            <h1 class="h2">busqueda de persona</h1>
+            <div  class="div_form container ">   
+                <form class="col-md-12 container column" style="text-align: justify; justify-content: end;" action="/app_sis_vacuna/buscar_persona/" method="GET">
+                    <table class="container col-md-4">
+                        <tr>
+                            <td>Ingrese rut de persona</td>
+                            <td><input type="text" name="txt_rut"> </td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="ver persona buscada"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
         </div>
-        </div>
+        {%include "app_sis_vacuna/footer.html" %}
 </body>
 </html>
